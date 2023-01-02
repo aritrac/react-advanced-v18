@@ -4,12 +4,17 @@ import React, { useState, useEffect } from 'react'
 // second parameter
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0)
+  //This useEffect runs whenever the value of [value] (2nd parameter) changes
   useEffect(() => {
     console.log('call useEffect')
     if (value >= 1) {
       document.title = `New Messages(${value})`
     }
-  })
+  }, [value])
+  //The following useEffect runs only once
+  useEffect(() => {
+    console.log('hello world')
+  }, [])
   console.log('render component')
   return (
     <>
